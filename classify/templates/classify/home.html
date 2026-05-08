@@ -1,0 +1,149 @@
+{% extends "classify/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Home - PashuPehchaan" %}{% endblock %}
+
+{% block content %}
+<style>
+  /* 🌿 Hero Section */
+  .home-background {
+    background: url("{% static 'images/home-bg.jpg' %}") no-repeat center center/cover;
+    width: 96vw;
+    margin-left: calc(-48vw + 50%);
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    color: #fff;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    border-radius: 25px;
+  }
+
+  .home-background h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .home-background p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .home-background .btn {
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 0.7rem 1.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .home-background .btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: #2e7d32 !important;
+  }
+
+  /* 🐮 Cards Section */
+  .breed-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #f9fff8, #e8f5e9);
+    text-align: center;
+  }
+
+  .breed-section h2 {
+    font-weight: 800;
+    color: #1b5e20;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+  }
+
+  .breed-card {
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    padding: 2rem 1.5rem;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    height: 100%;
+  }
+
+  .breed-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+  }
+
+  .breed-card img {
+    width: 90px;
+    margin-bottom: 1.2rem;
+    transition: transform 0.4s ease;
+  }
+
+  .breed-card:hover img {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .breed-card h5 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+  }
+
+  .breed-card p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+</style>
+
+<!-- 🌿 Hero Section -->
+<div class="home-background text-center">
+  <h1>{% trans "Welcome to Breed Classifier" %}</h1>
+  <p class="lead">{% trans "Upload an image of cattle or buffalo and get predictions instantly." %}</p>
+  <a href="{% url 'predict_page' %}" class="btn btn-success btn-lg rounded-pill">🚀 {% trans "Try Prediction" %}</a>
+</div>
+
+<!-- 🐮 Breed Categories Section -->
+<section class="breed-section">
+  <h2>{% trans "Explore Popular Breeds" %}</h2>
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      
+      <!-- 🐮 Cattle Card -->
+      <div class="col-md-4">
+        <a href="{% url 'about' %}#cattle" style="text-decoration: none;">
+          <div class="breed-card h-100">
+            <h5>{% trans "Popular Cattle Breeds" %}</h5>
+            <p>{% trans "Discover India's best dairy and dual-purpose cattle breeds known for productivity and resilience." %}</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- 🐃 Buffalo Card -->
+      <div class="col-md-4">
+        <a href="{% url 'about' %}#buffalo" style="text-decoration: none;">
+          <div class="breed-card h-100">
+            <h5>{% trans "Popular Buffalo Breeds" %}</h5>
+            <p>{% trans "Explore high-yield buffalo breeds valued for rich milk and adaptability to Indian climates." %}</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- 🌿 Crossbreed Card -->
+      <div class="col-md-4">
+        <a href="{% url 'about' %}#crossbreed" style="text-decoration: none;">
+          <div class="breed-card h-100">
+            <h5>{% trans "Popular Crossbreeds" %}</h5>
+            <p>{% trans "Meet the top crossbreeds combining high yield, disease resistance, and heat tolerance." %}</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

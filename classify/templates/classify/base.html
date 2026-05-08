@@ -1,0 +1,278 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}{% trans "PashuPehchaan" %}{% endblock %}</title>
+
+  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    html { font-size: 14px; }
+
+    body {
+      background: #f4fff3;
+      font-family: 'Montserrat', sans-serif;
+      color: #2e3d2f;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* 🌿 Navbar */
+    .custom-navbar {
+      background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c, #4caf50, #66bb6a);
+      background-size: 300% 300%;
+      animation: navbarGradient 10s ease infinite;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+      padding: 0.6rem 0;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    @keyframes navbarGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .custom-navbar .navbar-brand {
+      color: #fff !important;
+      font-weight: 800;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .custom-navbar .navbar-brand img {
+      height: 48px;
+      width: auto;
+      margin-right: 10px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .custom-navbar .navbar-brand:hover img {
+      transform: rotate(-8deg) scale(1.05);
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.7));
+    }
+
+    .nav-btn {
+      background: rgba(255,255,255,0.1);
+      color: #fff !important;
+      font-weight: 600;
+      border-radius: 50px;
+      padding: 0.45rem 1.3rem;
+      font-size: 0.95rem;
+      margin-right: 12px;
+      transition: all 0.35s ease;
+      text-decoration: none;
+      backdrop-filter: blur(4px);
+    }
+    .nav-btn:hover {
+      background-color: #c8e6c9;
+      color: #1b5e20 !important;
+      transform: translateY(-2px) scale(1.08);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.6);
+    }
+
+    /* 🌿 Hero */
+    .hero {
+      width: 100%;
+      padding: 4rem 1rem 2.5rem;
+      background: linear-gradient(120deg, #66bb6a, #4caf50, #388e3c, #2e7d32, #1b5e20);
+      background-size: 300% 300%;
+      animation: heroGradient 15s ease infinite;
+      text-align: center;
+      border-bottom-left-radius: 30% 8%;
+      border-bottom-right-radius: 30% 8%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes heroGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 🌊 Soft gradient waves in hero */
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 10%, transparent 70%);
+      animation: waveMove 20s linear infinite;
+      z-index: 0;
+    }
+    @keyframes waveMove {
+      0% { transform: translateX(0) translateY(0) rotate(0deg); }
+      100% { transform: translateX(20px) translateY(20px) rotate(360deg); }
+    }
+
+    /* 🪄 Floating logo */
+    .floating-logo {
+      position: relative;
+      display: inline-block;
+      animation: floatLogo 3.5s ease-in-out infinite;
+      z-index: 1;
+      transition: transform 0.4s ease;
+    }
+    .floating-logo:hover {
+      transform: scale(1.07) rotate(4deg);
+      filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.8));
+    }
+    .floating-logo img {
+      height: 55px;
+      width: auto;
+    }
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .floating-logo::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 55%;
+      height: 8px;
+      background: radial-gradient(rgba(0,0,0,0.6), transparent 70%);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      filter: blur(4px);
+      z-index: -1;
+      animation: shadowPulse 3.5s ease-in-out infinite;
+    }
+
+    /* ✨ Hero Text */
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-top: 1.2rem;
+      background: linear-gradient(90deg, #ffffff, #dcedc8, #ffffff);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+      letter-spacing: 1px;
+      z-index: 1;
+      position: relative;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .hero p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-top: 0.7rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* 🌿 Footer */
+    footer {
+      background: linear-gradient(90deg, #e8f5e9, #f1f8e9);
+      text-align: center;
+      padding: 0.8rem 0;
+      font-size: 0.9rem;
+      color: #2e3d2f;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+    }
+    footer p span {
+      background: linear-gradient(90deg, #1b5e20, #43a047, #66bb6a, #1b5e20);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s infinite linear;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    footer p span:hover {
+      filter: brightness(1.25);
+      text-shadow: 0 0 6px rgba(67,160,71,0.7);
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.7rem; }
+      .hero p { font-size: 1rem; }
+      .custom-navbar .navbar-brand img { height: 40px; }
+      .floating-logo img { height: 45px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🌿 Navbar -->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'images/logo.png' %}" alt="Logo" />
+        {% trans "PashuPehchaan" %}
+      </a>
+
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-btn" href="{% url 'home' %}">{% trans "Home" %}</a></li>
+          <li class="nav-item"><a class="nav-btn" href="{% url 'about' %}">{% trans "About" %}</a></li>
+          <li class="nav-item"><a class="nav-btn" href="{% url 'predict_page' %}">{% trans "Predict" %}</a></li>
+          <li class="nav-item ms-lg-3">
+            <form action="{% url 'set_language' %}" method="post" class="d-inline">
+              {% csrf_token %}
+              <select name="language" onchange="this.form.submit()" class="form-select form-select-sm">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% for lang, lang_name in LANGUAGES %}
+                  <option value="{{ lang }}" {% if lang == LANGUAGE_CODE %}selected{% endif %}>{{ lang_name }}</option>
+                {% endfor %}
+              </select>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🌿 Hero -->
+  <div class="hero">
+    <div class="floating-logo">
+      <img src="{% static 'images/logo.png' %}" alt="Logo" />
+    </div>
+    <h1>{% trans "Cattle & Buffalo Breed Classifier" %}</h1>
+    <p>{% trans "Upload an image and get top predictions instantly." %}</p>
+  </div>
+
+  <!-- 🌿 Content -->
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- 🌿 Footer -->
+  <footer>
+    <p>© 2025 <span>{% trans "PashuPehchaan | Develop by team Visionary Herd" %}</span></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

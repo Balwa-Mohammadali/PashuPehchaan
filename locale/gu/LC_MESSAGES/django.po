@@ -1,0 +1,206 @@
+# Gujarati Translations for Breed Classifier
+# Copyright (C) 2025
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Breed Classifier 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-23 08:47-0700\n"
+"PO-Revision-Date: 2025-09-26 10:20+0530\n"
+"Last-Translator: AI Translator <translate@example.com>\n"
+"Language-Team: Gujarati\n"
+"Language: gu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: breedui/settings.py:10
+msgid "English"
+msgstr "અંગ્રેજી"
+
+#: breedui/settings.py:11
+msgid "Hindi"
+msgstr "હિન્દી"
+
+#: breedui/settings.py:12
+msgid "Gujarati"
+msgstr "ગુજરાતી"
+
+#: classify/templates/classify/base.html:20
+msgid "PashuPehchaan"
+msgstr "પશુપહેચાન"
+
+#: classify/templates/classify/base.html:45
+msgid "Home"
+msgstr "ઘર"
+
+#: classify/templates/classify/base.html:46
+msgid "About"
+msgstr "વિશે"
+
+#: classify/templates/classify/base.html:47
+#: classify/templates/classify/predict.html:119
+msgid "Predict"
+msgstr "ભવિષ્યવાણી કરો"
+
+#: classify/templates/classify/base.html:55
+msgid "Cattle & Buffalo Breed Classifier"
+msgstr "ગાય અને ભેંસની જાતિ ઓળખનાર"
+
+#: classify/templates/classify/base.html:56
+msgid "Upload an image and get top predictions instantly."
+msgstr "એક ફોટો અપલોડ કરો અને તરત જ શ્રેષ્ઠ ભવિષ્યવાણી મેળવો."
+
+#: classify/templates/classify/base.html:65
+msgid "Breed Classifier"
+msgstr "જાતિ ઓળખનાર"
+
+#: classify/templates/classify/home.html:3
+msgid "Home - PashuPehchaan"
+msgstr "ઘર - પશુપહેચાન"
+
+#: classify/templates/classify/home.html:5
+msgid "Welcome to Breed Classifier"
+msgstr "બ્રીડ ક્લાસિફાયર માં આપનું સ્વાગત છે"
+
+#: classify/templates/classify/home.html:6
+msgid "Upload an image of cattle or buffalo and get predictions instantly."
+msgstr "ગાય અથવા ભેંસનો ફોટો અપલોડ કરો અને તરત જ ભવિષ્યવાણી મેળવો."
+
+#: classify/templates/classify/home.html:7
+msgid "Try Prediction"
+msgstr "ભવિષ્યવાણી અજમાવો"
+
+#: classify/templates/classify/home.html:40
+msgid "Explore Popular Breeds"
+msgstr "લોકપ્રિય જાતિઓ શોધો"
+
+#: classify/templates/classify/home.html:48
+msgid "Popular Cattle Breeds"
+msgstr "લોકપ્રિય ગાયની જાતિઓ"
+
+#: classify/templates/classify/home.html:57
+msgid "Popular Buffalo Breeds"
+msgstr "લોકપ્રિય ભેંસની જાતિઓ"
+
+#: classify/templates/classify/home.html:66
+msgid "Popular Crossbreeds"
+msgstr "લોકપ્રિય સંકર જાતિઓ"
+
+#: classify/templates/classify/about.html:5
+msgid "About - Breed Classifier"
+msgstr "વિશે - જાતિ વર્ગીકરણ"
+
+# Section titles
+msgid "Popular Cattle Breeds:"
+msgstr "લોકપ્રિય ગાયની જાતિઓ:"
+
+msgid "Popular Buffalo Breeds:"
+msgstr "લોકપ્રિય ભેંસની જાતિઓ:"
+
+msgid "Popular Crossbreeds:"
+msgstr "લોકપ્રિય સંકર જાતિઓ:"
+
+# Cattle breeds
+msgid "Gir Cattle"
+msgstr "ગીર ગાય"
+
+msgid "A hardy breed from Gujarat known for high milk yield (12–15 L/day), disease resistance, and long lactation."
+msgstr "ગુજરાતની મજબૂત જાતિ, જે વધારે દૂધ ઉત્પાદન (12–15 લિટર/દિવસ), રોગપ્રતિકારક શક્તિ અને લાંબા દુગ્ધ ઉત્પન્ન સમય માટે જાણીતી છે."
+
+msgid "Sahiwal Cattle"
+msgstr "સાહીવાલ ગાય"
+
+msgid "From Punjab, a top zebu dairy breed producing 8–10 L/day, heat-tolerant and low-maintenance."
+msgstr "પંજાબની શ્રેષ્ઠ દૂધ આપતી જાતિ, 8–10 લિટર/દિવસ દૂધ આપે છે, ગરમી સહનશીલ અને ઓછી સંભાળ માંગે છે."
+
+msgid "Red Sindhi"
+msgstr "લાલ સિંધિ"
+
+msgid "Compact dairy breed (6–8 L/day), great disease resistance and tropical adaptability, ideal for crossbreeding."
+msgstr "સંકુચિત દૂધ આપતી જાતિ (6–8 લિટર/દિવસ), ઉત્તમ રોગપ્રતિકારક શક્તિ અને ઉષ્ણકટિબંધમાં અનુકૂળતા ધરાવે છે, સંકર પ્રજનન માટે આદર્શ."
+
+msgid "Tharparkar Cattle"
+msgstr "થારપારકર ગાય"
+
+msgid "Dual-purpose Rajasthan breed producing 7–9 L/day, ideal for semi-arid regions and draught work."
+msgstr "રાજસ્થાનની દ્વિઉપયોગી જાતિ, 7–9 લિટર/દિવસ દૂધ આપે છે, અર્ધ શુષ્ક વિસ્તારો અને ખેંચાણ માટે આદર્શ."
+
+msgid "Hariana Cattle"
+msgstr "હરિયાણા ગાય"
+
+msgid "Versatile breed from Haryana, producing 6–8 L/day and excellent for draught work."
+msgstr "હરિયાણાની બહુમુખી જાતિ, 6–8 લિટર/દિવસ દૂધ આપે છે અને ખેંચાણ માટે ઉત્તમ છે."
+
+msgid "Ongole Cattle"
+msgstr "ઓન્ગોલે ગાય"
+
+msgid "Strong dual-purpose breed from Andhra Pradesh, valued for endurance and 8–10 L/day milk yield."
+msgstr "આંધ્ર પ્રદેશની મજબૂત દ્વિઉપયોગી જાતિ, સહનશક્તિ અને 8–10 લિટર/દિવસ દૂધ માટે મૂલ્યવાન."
+
+# Buffalo breeds
+msgid "Murrah Buffalo"
+msgstr "મુર્રાહ ભેંસ"
+
+msgid "India’s top dairy buffalo, producing 10–16 L/day with 7–8% fat. Highly fertile and widely used in breeding."
+msgstr "ભારતની શ્રેષ્ઠ દૂધ આપતી ભેંસ, 10–16 લિટર/દિવસ દૂધ અને 7–8% ચરબી ધરાવે છે. ખૂબ પ્રજનનક્ષમ અને સંકર માટે વ્યાપક રીતે ઉપયોગમાં લેવાય છે."
+
+msgid "Jaffarabadi Buffalo"
+msgstr "જાફરાબાદી ભેંસ"
+
+msgid "Massive Gujarat breed, producing 8–14 L/day. Known for resilience and high butterfat content."
+msgstr "ગુજરાતની મોટી જાતિ, 8–14 લિટર/દિવસ દૂધ આપે છે. તેની સહનશક્તિ અને વધુ બટરફેટ માટે જાણીતી છે."
+
+msgid "Nili-Ravi Buffalo"
+msgstr "નીલી-રવી ભેંસ"
+
+msgid "Calm breed from Punjab, producing 10–15 L/day, adaptable to different climates."
+msgstr "પંજાબની શાંત જાતિ, 10–15 લિટર/દિવસ દૂધ આપે છે અને વિવિધ હવામાનમાં અનુકૂળ છે."
+
+msgid "Surti Buffalo"
+msgstr "સુરતી ભેંસ"
+
+msgid "Medium-sized breed producing 6–8 L/day rich milk. Known for early maturity and efficient feed use."
+msgstr "મધ્યમ કદની જાતિ, 6–8 લિટર/દિવસ સમૃદ્ધ દૂધ આપે છે. વહેલી પરિપક્વતા અને કાર્યક્ષમ આહાર ઉપયોગ માટે જાણીતી છે."
+
+msgid "Banni Buffalo"
+msgstr "બન્ની ભેંસ"
+
+msgid "Hardy desert breed from Kutch, producing 7–10 L/day even in harsh conditions."
+msgstr "કચ્છની મજબૂત રણપ્રદેશ જાતિ, કઠોર પરિસ્થિતિમાં પણ 7–10 લિટર/દિવસ દૂધ આપે છે."
+
+msgid "Mehsana Buffalo"
+msgstr "મહેસાણા ભેંસ"
+
+msgid "Cross of Surti and Murrah, producing 8–12 L/day. Known for good lactation length and adaptability."
+msgstr "સુરતી અને મુર્રાહનું સંકર, 8–12 લિટર/દિવસ દૂધ આપે છે. સારી લેક્ટેશન અવધિ અને અનુકૂળતા માટે જાણીતી છે."
+
+# Crossbreeds
+msgid "Karan Swiss"
+msgstr "કરન સ્વિસ"
+
+msgid "Cross of Sahiwal and Brown Swiss, producing 15–20 L/day. Combines yield with heat tolerance and disease resistance."
+msgstr "સાહીવાલ અને બ્રાઉન સ્વિસનું સંકર, 15–20 લિટર/દિવસ દૂધ આપે છે. વધુ ઉપજ, ગરમી સહનશક્તિ અને રોગપ્રતિકારક શક્તિ ધરાવે છે."
+
+msgid "Karan Fries"
+msgstr "કરન ફ્રાઇઝ"
+
+msgid "Cross of Holstein Friesian and Tharparkar, producing up to 20 L/day. Known for rapid growth and productivity."
+msgstr "હોલસ્ટેઇન ફ્રીઝિયન અને થારપારકરનું સંકર, 20 લિટર/દિવસ સુધી દૂધ આપે છે. ઝડપી વૃદ્ધિ અને વધુ ઉત્પાદન માટે જાણીતી છે."
+
+msgid "Discover India's best dairy and dual-purpose cattle breeds known for productivity and resilience."
+msgstr "ભારતની શ્રેષ્ઠ દૂધાળ અને દ્વિઉપયોગી ગાયની જાતિઓ જાણો, જે ઉત્પાદનક્ષમતા અને સહનશક્તિ માટે જાણીતી છે."
+
+msgid "Explore high-yield buffalo breeds valued for rich milk and adaptability to Indian climates."
+msgstr "સમૃદ્ધ દૂધ અને ભારતીય હવામાનમાં અનુકૂળતા માટે મૂલ્યવાન ઉચ્ચ ઉપજવાળી ભેંસની જાતિઓ જાણો."
+
+msgid "Meet the top crossbreeds combining high yield, disease resistance, and heat tolerance."
+msgstr "ઉચ્ચ ઉપજ, રોગપ્રતિકારક શક્તિ અને ગરમી સહનશક્તિ ધરાવતી ટોચની સંકર જાતિઓને જાણો."
+
+msgid "Upload Image"
+msgstr "ફોટો અપલોડ કરો"
+
+msgid "Choose a breed image to analyze:"
+msgstr "વિશ્લેષણ માટે જાતિની છબી પસંદ કરો:"

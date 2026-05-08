@@ -1,0 +1,234 @@
+{% extends "classify/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "About - Breed Classifier" %}{% endblock %}
+
+{% block content %}
+
+<style>
+  .breed-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    transition: transform 0.4s ease;
+  }
+
+  .breed-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    border-radius: 1rem;
+  }
+
+  .breed-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.2);
+  }
+
+  .breed-card h5 {
+    color: #2e7d32;
+  }
+
+  .breed-card p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  h4.section-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: #000 !important;
+    position: relative;
+    display: inline-block;
+  }
+
+  h4.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #000;
+    margin: 8px auto 0;
+    border-radius: 2px;
+  }
+</style>
+
+<div class="container my-5">
+
+  <!-- 🐄 Cattle Breeds Section -->
+  <h4 class="text-center section-title">{% trans "Popular Cattle Breeds:" %}</h4>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <!-- Gir -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/gir.jpg' %}" alt="{% trans 'Gir Cattle' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Gir Cattle" %}</h5>
+          <p>{% trans "A hardy breed from Gujarat known for high milk yield (12–15 L/day), disease resistance, and long lactation." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sahiwal -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/sahiwal.jpg' %}" alt="{% trans 'Sahiwal Cattle' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Sahiwal Cattle" %}</h5>
+          <p>{% trans "From Punjab, a top zebu dairy breed producing 8–10 L/day, heat-tolerant and low-maintenance." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Red Sindhi -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/red_sindhi.jpg' %}" alt="{% trans 'Red Sindhi' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Red Sindhi" %}</h5>
+          <p>{% trans "Compact dairy breed (6–8 L/day), great disease resistance and tropical adaptability, ideal for crossbreeding." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tharparkar -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/tharparkar.jpeg' %}" alt="{% trans 'Tharparkar Cattle' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Tharparkar Cattle" %}</h5>
+          <p>{% trans "Dual-purpose Rajasthan breed producing 7–9 L/day, ideal for semi-arid regions and draught work." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hariana -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/hariana.jpg' %}" alt="{% trans 'Hariana Cattle' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Hariana Cattle" %}</h5>
+          <p>{% trans "Versatile breed from Haryana, producing 6–8 L/day and excellent for draught work." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ongole -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/ongole.jpg' %}" alt="{% trans 'Ongole Cattle' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Ongole Cattle" %}</h5>
+          <p>{% trans "Strong dual-purpose breed from Andhra Pradesh, valued for endurance and 8–10 L/day milk yield." %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🐃 Buffalo Breeds Section -->
+  <h4 class="text-center section-title my-5">{% trans "Popular Buffalo Breeds:" %}</h4>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <!-- Murrah -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/murrah.jpg' %}" alt="{% trans 'Murrah Buffalo' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Murrah Buffalo" %}</h5>
+          <p>{% trans "India’s top dairy buffalo, producing 10–16 L/day with 7–8% fat. Highly fertile and widely used in breeding." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jaffarabadi -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/jaffarabadi.png' %}" alt="{% trans 'Jaffarabadi Buffalo' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Jaffarabadi Buffalo" %}</h5>
+          <p>{% trans "Massive Gujarat breed, producing 8–14 L/day. Known for resilience and high butterfat content." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nili-Ravi -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/nili_ravi.jpg' %}" alt="{% trans 'Nili-Ravi Buffalo' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Nili-Ravi Buffalo" %}</h5>
+          <p>{% trans "Calm breed from Punjab, producing 10–15 L/day, adaptable to different climates." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Surti -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/surti.jpg' %}" alt="{% trans 'Surti Buffalo' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Surti Buffalo" %}</h5>
+          <p>{% trans "Medium-sized breed producing 6–8 L/day rich milk. Known for early maturity and efficient feed use." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banni -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/banni.jpg' %}" alt="{% trans 'Banni Buffalo' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Banni Buffalo" %}</h5>
+          <p>{% trans "Hardy desert breed from Kutch, producing 7–10 L/day even in harsh conditions." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mehsana -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/mehsana.jpg' %}" alt="{% trans 'Mehsana Buffalo' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Mehsana Buffalo" %}</h5>
+          <p>{% trans "Cross of Surti and Murrah, producing 8–12 L/day. Known for good lactation length and adaptability." %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🧬 Crossbreeds Section -->
+  <h4 class="text-center section-title my-5">{% trans "Popular Crossbreeds:" %}</h4>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <!-- Karan Swiss -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/karan_swiss.jpeg' %}" alt="{% trans 'Karan Swiss' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Karan Swiss" %}</h5>
+          <p>{% trans "Cross of Sahiwal and Brown Swiss, producing 15–20 L/day. Combines yield with heat tolerance and disease resistance." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karan Fries -->
+    <div class="col">
+      <div class="card breed-card h-100 shadow-sm">
+        <img src="{% static 'images/karan_fries.jpeg' %}" alt="{% trans 'Karan Fries' %}">
+        <div class="card-body text-center">
+          <h5 class="fw-bold">{% trans "Karan Fries" %}</h5>
+          <p>{% trans "Cross of Holstein Friesian and Tharparkar, producing up to 20 L/day. Known for rapid growth and productivity." %}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

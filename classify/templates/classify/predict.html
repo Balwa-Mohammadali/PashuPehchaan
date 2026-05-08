@@ -1,0 +1,215 @@
+{% extends "classify/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Predict - Breed Classifier" %}{% endblock %}
+
+{% block content %}
+<style>
+  /* 🌿 Elegant Background */
+  .predict-background {
+    background: linear-gradient(rgba(27, 94, 32, 0.88), rgba(27, 94, 32, 0.88)),
+                url("{% static 'images/home-bg.jpg' %}") center/cover no-repeat;
+    width: 96vw;
+    margin-left: calc(-48vw + 50%);
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+    border-radius: 30px;
+    position: relative;
+  }
+
+  /* ✨ Floating light effect */
+  .predict-background::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.06), transparent 60%);
+    animation: rotateWave 30s linear infinite;
+    z-index: 0;
+  }
+  @keyframes rotateWave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* 📦 Upload Card */
+  .predict-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 2rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .predict-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+  }
+
+  /* 📤 Title */
+  .predict-card h5 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #1b5e20;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 🖼️ Preview */
+  #preview-img {
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-top: 1.5rem;
+    border: 5px solid #66bb6a;
+    box-shadow: 0 8px 20px rgba(27, 94, 32, 0.25);
+    display: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #preview-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(27, 94, 32, 0.35);
+  }
+
+  /* ✨ Predict Button */
+  .btn-predict {
+    background: linear-gradient(90deg, #1b5e20, #43a047);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.7rem 2.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: none;
+  }
+  .btn-predict:hover {
+    background: linear-gradient(90deg, #43a047, #1b5e20);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(67, 160, 71, 0.45);
+  }
+
+  /* 📊 Results */
+  #result-box {
+    margin-top: 2rem;
+    background: #f4fff3;
+    border-left: 6px solid #2e7d32;
+    animation: fadeIn 0.7s ease forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  #result-box h5 {
+    font-size: 1.5rem;
+    color: #2e7d32;
+    margin-bottom: 1.2rem;
+  }
+  .list-group-item {
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border: none;
+    border-radius: 12px !important;
+  }
+</style>
+
+<div class="predict-background">
+  <div class="container d-flex justify-content-center">
+    <div class="col-lg-6">
+      <!-- 📤 Upload Card -->
+      <div class="predict-card text-center">
+        <h5><i class="bi bi-cloud-upload"></i> {% trans "Upload Image" %}</h5>
+
+        {% if error %}
+          <div class="alert alert-danger rounded-3 small fw-semibold py-2">{{ error }}</div>
+        {% endif %}
+
+        <form action="{% url 'predict' %}" method="post" enctype="multipart/form-data" id="predict-form">
+          {% csrf_token %}
+          <label class="text-muted d-block mb-2 fw-semibold small">{% trans "Choose a breed image to analyze:" %}</label>
+          <div class="mb-3">{{ form.image }}</div>
+          <button class="btn btn-predict" type="submit">
+            <i class="bi bi-magic"></i> {% trans "Predict" %}
+          </button>
+        </form>
+
+        <!-- 🖼️ Preview -->
+        <div class="d-flex justify-content-center">
+          <img id="preview-img" 
+               src="{% if img_url %}{{ img_url }}{% endif %}"
+               alt="{% trans 'Preview' %}"
+               style="display: {% if img_url %}block{% else %}none{% endif %};" />
+        </div>
+      </div>
+
+      <!-- 📊 Prediction Results -->
+      {% if preds %}
+      <div id="result-box" class="card shadow-sm p-3 border-0 rounded-4 bg-light">
+        <h5 class="text-center fw-bold">
+          <i class="bi bi-bar-chart-line"></i> {% trans "Prediction Results" %}
+        </h5>
+        <ol class="list-group list-group-numbered small">
+          <li class="list-group-item d-flex justify-content-between align-items-center mb-2 py-2">
+            <span class="fw-semibold">
+              {{ preds.prediction }} <small class="text-muted">({{ preds.confidence_label }})</small>
+            </span>
+            <span class="badge bg-success rounded-pill px-2 py-1">{{ preds.confidence }}%</span>
+          </li>
+          {% if preds.second_opinion %}
+          <li class="list-group-item d-flex justify-content-between align-items-center py-2">
+            <span class="fw-semibold">
+              {{ preds.second_opinion.class }} <small class="text-muted">({% trans "Second Opinion" %})</small>
+            </span>
+            <span class="badge bg-warning rounded-pill px-2 py-1">{{ preds.second_opinion.confidence }}%</span>
+          </li>
+          {% endif %}
+        </ol>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const fileInput = document.querySelector('input[type="file"]');
+  const previewImg = document.getElementById('preview-img');
+  const resultBox = document.getElementById('result-box');
+
+  if (fileInput) {
+    fileInput.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          previewImg.src = e.target.result;
+          previewImg.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+
+        // Hide previous results for new prediction
+        if (resultBox) {
+          resultBox.style.opacity = '0';
+          setTimeout(() => {
+            resultBox.style.display = 'none';
+          }, 200);
+        }
+      }
+    });
+  }
+
+  // 📦 Smooth scroll to results if available
+  window.onload = () => {
+    if (resultBox) {
+      resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+</script>
+{% endblock %}
